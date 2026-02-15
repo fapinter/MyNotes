@@ -1,7 +1,6 @@
 PRAGMA foreign_keys = ON;
 
 -- 1. WORKSPACE
--- Não precisa mais de id_user. O banco inteiro é do usuário.
 CREATE TABLE IF NOT EXISTS workspace (
     id INTEGER PRIMARY KEY,
     name_workspace TEXT NOT NULL,
@@ -10,7 +9,6 @@ CREATE TABLE IF NOT EXISTS workspace (
 );
 
 -- 2. CALENDAR EVENTS
--- Eventos são globais ou ligados ao arquivo local, não a um "user_id" específico.
 CREATE TABLE IF NOT EXISTS calendar_events (
     id INTEGER PRIMARY KEY,
     date DATETIME NOT NULL,
@@ -27,7 +25,6 @@ CREATE TABLE IF NOT EXISTS files (
 );
 
 -- 4. NOTES
--- Mantém relação com workspace e calendário.
 CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY,
     id_workspace INTEGER NOT NULL REFERENCES workspace(id) ON DELETE CASCADE,
@@ -37,7 +34,6 @@ CREATE TABLE IF NOT EXISTS notes (
 );
 
 -- 5. FAVORITES
--- Removemos id_user. Agora é apenas "Este item neste workspace é favorito".
 CREATE TABLE IF NOT EXISTS favorites (
     id INTEGER PRIMARY KEY,
     id_workspace INTEGER NOT NULL REFERENCES workspace(id) ON DELETE CASCADE,
@@ -46,7 +42,6 @@ CREATE TABLE IF NOT EXISTS favorites (
 );
 
 -- 6. TODO
--- Removemos id_user.
 CREATE TABLE IF NOT EXISTS todo (
     id INTEGER PRIMARY KEY,
     id_workspace INTEGER REFERENCES workspace(id) ON DELETE CASCADE, -- Pode ser NULL se for um TODO global
@@ -54,7 +49,6 @@ CREATE TABLE IF NOT EXISTS todo (
 );
 
 -- 7. TODO ITEMS
--- Inalterado, apenas ajustado para sintaxe SQLite
 CREATE TABLE IF NOT EXISTS todo_items (
     id INTEGER PRIMARY KEY,
     id_todo INTEGER NOT NULL REFERENCES todo(id) ON DELETE CASCADE,
@@ -64,7 +58,6 @@ CREATE TABLE IF NOT EXISTS todo_items (
 );
 
 -- 8. CALENDAR EVENT FILES
--- Tabela associativa (Many-to-Many) entre eventos e arquivos
 CREATE TABLE IF NOT EXISTS calendar_event_files (
     id_event INTEGER NOT NULL REFERENCES calendar_events(id) ON DELETE CASCADE,
     id_file INTEGER NOT NULL REFERENCES files(id) ON DELETE CASCADE,

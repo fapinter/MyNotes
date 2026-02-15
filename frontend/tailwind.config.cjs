@@ -4,7 +4,18 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+          background: "var(--gray-background)",
+          blue_pri: "var(--blue-primary)",
+          blue_sec: "var(--blue-secondary)",
+          my_white: "var(--white-primary)",
+          stone_gray: "var(--stone-gray)",
+          stone_black: "var(--stone-black)" ,
+
+        },
+      
+    },
   },
   plugins: [],
 }

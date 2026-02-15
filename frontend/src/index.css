@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --gray-background: oklch(27.8% 0.033 256.848);
+        --blue-primary: oklch(80.9% 0.105 251.813);
+        --blue-secondary: oklch(70.7% 0.165 254.624);
+        --white-primary: oklch(92% 0.004 286.32);
+        --stone-gray: oklch(37.4% 0.01 67.558);
+        --stone-black: oklch(14.7% 0.004 49.25);
+    }
+
+}
