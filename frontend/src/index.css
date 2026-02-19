@@ -5,6 +5,7 @@
 @layer base {
     :root {
         --gray-background: oklch(27.8% 0.033 256.848);
+        --gray-background-2: oklch(34.21% 0.04531 258.765);
         --blue-primary: oklch(80.9% 0.105 251.813);
         --blue-secondary: oklch(70.7% 0.165 254.624);
         --white-primary: oklch(92% 0.004 286.32);
