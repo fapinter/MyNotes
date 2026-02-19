@@ -23,6 +23,7 @@ export default function Home() {
     return (
         <div className="w-screen h-screen bg-background flex align-items-center flex-col px-[2.5%] py-[1%]">
             <Menubar  model={menu_items} className='w-full h-[7.5%] bg-light_bg flex justify-end px-[1%]'/>
+            <div className='w-full h-[2.5%] bg-background'></div>
             <Outlet/>
         </div>
     );

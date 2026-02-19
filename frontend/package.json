@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",
     "react": "^18.2.0",
