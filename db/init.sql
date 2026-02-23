@@ -1,10 +1,12 @@
 PRAGMA foreign_keys = ON;
+PRAGMA journal_mode = WAL;
+PRAGMA synchronous = NORMAL;
+PRAGMA busy_timeout = 5000;
 
 -- 1. WORKSPACE
 CREATE TABLE IF NOT EXISTS workspace (
     id INTEGER PRIMARY KEY,
     name_workspace TEXT NOT NULL,
-    directory_name TEXT,
     created_at TEXT NOT NULL
 );
 
@@ -40,6 +42,7 @@ CREATE TABLE IF NOT EXISTS favorites (
     id_favorite INTEGER NOT NULL, -- ID do objeto favoritado
     type_favorite TEXT NOT NULL -- Ex: 'NOTE', 'FILE'
 );
+
 
 -- 6. TODO
 CREATE TABLE IF NOT EXISTS todo (
